@@ -1,69 +1,81 @@
 body {
   margin: 0;
-  background-color: #f4f6f8;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0f172a;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 1.5rem;
+.app {
+  min-height: 100vh;
+  color: white;
+  padding: 20px;
 }
 
 .header {
-  margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .header h1 {
-  margin: 0;
+  margin-bottom: 5px;
 }
 
 .header p {
-  color: #555;
+  color: #94a3b8;
 }
 
-.grid {
+.incident {
+  background-color: #7f1d1d;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.toggle {
+  display: block;
+  margin: 0 auto 30px;
+  padding: 10px 16px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.toggle:hover {
+  background-color: #1d4ed8;
+}
+
+.services {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
 }
 
 .card {
-  background: #fff;
-  padding: 1.25rem;
+  background-color: #020617;
+  border: 1px solid #1e293b;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  text-align: center;
 }
 
-.card h2 {
-  margin-top: 0;
-  font-size: 1.1rem;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
+.status {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
-.badge {
-  padding: 0.2rem 0.6rem;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  color: white;
+.status.healthy {
+  color: #22c55e;
 }
 
-.green {
-  background-color: #2ecc71;
-}
-
-.orange {
-  background-color: #f39c12;
-}
-
-.red {
-  background-color: #e74c3c;
+.status.degraded {
+  color: #facc15;
 }
 
 .footer {
-  margin-top: 2rem;
+  margin-top: 40px;
   text-align: center;
-  font-size: 0.85rem;
-  color: #777;
+  color: #94a3b8;
 }

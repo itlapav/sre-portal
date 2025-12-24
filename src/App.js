@@ -1,61 +1,42 @@
+import React, { useState } from "react";
 import "./App.css";
 
-function StatusBadge({ status }) {
-  const color =
-    status === "OK" ? "green" : status === "WARN" ? "orange" : "red";
-
-  return <span className={`badge ${color}`}>{status}</span>;
-}
-
-function Card({ title, children }) {
-  return (
-    <div className="card">
-      <h2>{title}</h2>
-      {children}
-    </div>
-  );
-}
-
 function App() {
+  const [incident, setIncident] = useState(false);
+
+  const services = [
+    { name: "Checkout", status: "Healthy" },
+    { name: "Post-Sales", status: "Healthy" },
+    { name: "Add-Ons", status: "Degraded" },
+    { name: "Auth", status: "Healthy" }
+  ];
+
   return (
-    <div className="container">
+    <div className="app">
       <header className="header">
-        <h1>📡 SRE Status Portal</h1>
-        <p>Service reliability & operational transparency</p>
+        <h1>SRE Portal</h1>
+        <p>Service Reliability Overview</p>
       </header>
 
-      <div className="grid">
-        <Card title="Service Status">
-          <p>
-            API Service: <StatusBadge status="OK" />
-          </p>
-          <p>
-            Web Frontend: <StatusBadge status="OK" />
-          </p>
-          <p>
-            Database: <StatusBadge status="OK" />
-          </p>
-        </Card>
+      {incident && (
+        <div className="incident">
+          🚨 Incident ongoing — team investigating
+        </div>
+      )}
 
-        <Card title="SLO Overview">
-          <p>Availability: <strong>99.95%</strong></p>
-          <p>Latency (P95): <strong>240ms</strong></p>
-          <p>Error Budget Remaining: <strong>87%</strong></p>
-        </Card>
+      <button className="toggle" onClick={() => setIncident(!incident)}>
+        {incident ? "Resolve Incident" : "Trigger Incident"}
+      </button>
 
-        <Card title="Recent Incidents">
-          <ul>
-            <li>No incidents in the last 7 days 🎉</li>
-          </ul>
-        </Card>
-
-        <Card title="Runbooks">
-          <ul>
-            <li>🔧 Restart Service</li>
-            <li>📈 Scale Infrastructure</li>
-            <li>🚨 Incident Response</li>
-          </ul>
-        </Card>
+      <div className="services">
+        {services.map((service, index) => (
+          <div className="card" key={index}>
+            <h3>{service.name}</h3>
+            <span className={`status ${service.status.toLowerCase()}`}>
+              {service.status}
+            </span>
+          </div>
+        ))}
       </div>
 
       <footer className="footer">
