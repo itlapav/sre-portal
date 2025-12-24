@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sre-portal
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sre-portal
+  template:
+    metadata:
+      labels:
+        app: sre-portal
+    spec:
+      containers:
+      - name: sre-portal
+        image: itlapav/sre-portal:latest
+        ports:
+        - containerPort: 80
