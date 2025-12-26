@@ -20,13 +20,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      - name: Verify AWS identity
+        run: aws sts get-caller-identity
+
       - name: Install kubectl
         uses: azure/setup-kubectl@v4
 
       - name: Update kubeconfig
         run: |
           aws eks update-kubeconfig \
-            --region $AWS_REGION \
+            --region ${{ secrets.AWS_REGION }} \
             --name sre-cluster
 
       - name: Deploy to Kubernetes
