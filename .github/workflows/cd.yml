@@ -26,7 +26,7 @@ jobs:
         uses: azure/setup-kubectl@v4
 
       - name: Update kubeconfig
-        run: aws eks update-kubeconfig --region us-east-1 --name sre-cluster
+        run: aws eks update-kubeconfig --region us-east-1 --name sre-portal-cluster
 
       - name: Deploy to Kubernetes
         run: |
