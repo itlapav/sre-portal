@@ -18,15 +18,15 @@ function App() {
         <p>LF Service Reliability Overview</p>
       </header>
 
-      {incident && (
+      {/* {incident && (
         <div className="incident">
           🚨 Incident ongoing — team investigating
         </div>
-      )}
+      )} */}
 
-      <button className="toggle" onClick={() => setIncident(!incident)}>
+      {/* <button className="toggle" onClick={() => setIncident(!incident)}>
         {incident ? "Resolve Incident" : "Trigger Incident"}
-      </button>
+      </button> */}
 
       <div className="services">
         {services.map((service, index) => (
