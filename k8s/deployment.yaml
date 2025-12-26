@@ -16,5 +16,6 @@ spec:
       containers:
       - name: sre-portal
         image: itlapav/sre-portal:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
