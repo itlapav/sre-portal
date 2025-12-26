@@ -15,7 +15,7 @@ function App() {
     <div className="app">
       <header className="header">
         <h1>SRE Portal</h1>
-        <p>Service Reliability Overview</p>
+        <p>LF Service Reliability Overview</p>
       </header>
 
       {incident && (
