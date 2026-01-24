@@ -40,7 +40,7 @@ function App() {
       </div>
 
       <footer className="footer">
-        <p>Maintained by SRE Team</p>
+        <p>Maintained by LF SRE Team</p>
       </footer>
     </div>
   );

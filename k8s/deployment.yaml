@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: sre-portal
-  template:
+  template:          ##pod definition
     metadata:
       labels:
         app: sre-portal
@@ -19,3 +19,4 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+            
